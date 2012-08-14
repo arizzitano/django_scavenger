@@ -21,4 +21,4 @@ def view_clue(request, clue_slug):
 def admin_view_clue(request, clue_id):
 	c = get_object_or_404(Clue, id=clue_id)
 	nc = c.next_clue
-	return render_to_response('clue_admin.html', {'clue': c, 'next_clue': nc}, context_instance=RequestContext(request))
+	return render_to_response('clue_admin.html', {'clue': c}, context_instance=RequestContext(request))
