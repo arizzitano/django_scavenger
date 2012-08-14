@@ -2,5 +2,5 @@
 
 {% block content %}
 	<h1>CLUE #{{ clue.number }}</h1>
-	{{ clue.text }}
+	{{ clue.next_clue.text|safe }}
 {% endblock %}
