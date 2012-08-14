@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+	<p>Enter keyword #n to see the clue!</p>
+	{% if message %}
+		<p>{{ message }}</p>
+	{% endif %}
+	<form method="post" action="{{ request.get_full_path }}">
+		{% csrf_token %}
+		<input type="text" id="keyword" name="keyword" />
+		<input type="submit" value="Submit!" />
+	</form>
+{% endblock %}
