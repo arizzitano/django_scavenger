@@ -14,7 +14,7 @@ def view_clue(request, clue_slug):
 		if request.POST['keyword']:
 			if request.POST['keyword'] == c.keyword:
 				return render_to_response('clue_user.html', {'clue': c}, context_instance=RequestContext(request))
-		return render_to_response('clue_form.html', {'message': 'Incorrect keyword!'}, context_instance=RequestContext(request))
+		return render_to_response('clue_form.html', {'message': 'Incorrect keyword!', 'clue':c, 'request':request}, context_instance=RequestContext(request))
 	else:
 		return render_to_response('clue_form.html', {'request': request, 'clue':c}, context_instance=RequestContext(request))
 		
