@@ -2,6 +2,8 @@
 
 {% block content %}
 	<p>Enter keyword #n to see the clue!</p>
+	{{ clue.number }} 
+	This is the clue for {{ clue.location }}
 	{% if message %}
 		<p>{{ message }}</p>
 	{% endif %}

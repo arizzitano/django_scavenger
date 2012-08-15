@@ -16,7 +16,7 @@ def view_clue(request, clue_slug):
 				return render_to_response('clue_user.html', {'clue': c}, context_instance=RequestContext(request))
 		return render_to_response('clue_form.html', {'message': 'Incorrect keyword!'}, context_instance=RequestContext(request))
 	else:
-		return render_to_response('clue_form.html', {'request': request}, context_instance=RequestContext(request))
+		return render_to_response('clue_form.html', {'request': request, 'clue':c}, context_instance=RequestContext(request))
 		
 @login_required
 def admin_view_clue(request, clue_id):
