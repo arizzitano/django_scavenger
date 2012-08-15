@@ -3,9 +3,11 @@ from django.http import HttpResponse, HttpResponseRedirect, Http404
 from django.shortcuts import get_object_or_404, render_to_response
 from django.contrib.auth.decorators import login_required
 from main_app.models import Clue
+from simplescavenger import settings
 
 def index(request):
-	return render_to_response('index.html', {}, context_instance=RequestContext(request))
+	ld = settings.DOMAIN
+	return render_to_response('index.html', {'ld': ld}, context_instance=RequestContext(request))
 	
 def view_clue(request, clue_slug):
 	c = get_object_or_404(Clue, url_slug=clue_slug)
