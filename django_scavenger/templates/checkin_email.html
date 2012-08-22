@@ -1,1 +1,4 @@
-Tom just checked into clue #{{ clue.number }}. That means he's now at {{ clue.prev_clue.location }}!
+Tom just checked into clue #{{ clue.number }}. That means he's now at {{ clue.prev_clue.location }}! {{ remaining }} clues remain! 
+{% if remaining == 0 %}
+	GET READY!
+{% endif %}
