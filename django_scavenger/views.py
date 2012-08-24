@@ -12,10 +12,10 @@ def index(request):
 
 def view_clue(request, clue_slug):
 	c = get_object_or_404(Clue, url_slug=clue_slug)
-	pc = get_object_or_404(Clue, pk=c.prev_clue.id)
+	# pc = get_object_or_404(Clue, pk=c.prev_clue.id)
 	if request.method == 'POST':
 		if request.POST['keyword']:
-			if request.POST['keyword'].lower() == pc.prev_clue.keyword:
+			if request.POST['keyword'].lower() == c.prev_clue.keyword:
 # 				send_mail('Tomquest Clue #%i Found!' % (c.number,),
 # 				render_to_string('checkin_email.html', {'clue': c, 'remaining': (settings.NUM_CLUES - c.number)}),
 # 				'tomscavengerhunt@gmail.com',
