@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
-	<p>Enter keyword #{{ prev_clue.number }} to see the clue!</p>
+	<p>Enter keyword #{{ clue.prev_clue.number }} to see the clue!</p>
 	{% if message %}
 		<p>{{ message }}</p>
 	{% endif %}
