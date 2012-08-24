@@ -15,10 +15,8 @@ def view_clue(request, clue_slug):
 	if request.method == 'POST':
 		if request.POST['keyword']:
 			if request.POST['keyword'] == c.keyword:
-				#send_mail('Tomquest Clue #%i Found!' % (c.number,),
-				send_mail('Tomquest Test Email!',
-				#render_to_string('checkin_email.html', {'clue': c, 'remaining': (settings.NUM_CLUES - c.number)}),
-				'Hi friends! This is a test for Tom\'s scavenger hunt notification system. If you received this email, you should be all set to get notifications tomorrow.',
+				send_mail('Tomquest Clue #%i Found!' % (c.number,),
+				render_to_string('checkin_email.html', {'clue': c, 'remaining': (settings.NUM_CLUES - c.number)}),
 				'tomscavengerhunt@gmail.com',
 				settings.EMAIL_LIST,
 				fail_silently=False)
