@@ -15,10 +15,12 @@ def view_clue(request, clue_slug):
 	if request.method == 'POST':
 		if request.POST['keyword']:
 			if request.POST['keyword'] == c.keyword:
-				send_mail('Tomquest Clue #%i Found!' % (c.number,),
-				render_to_string('checkin_email.html', {'clue': c, 'remaining': (settings.NUM_CLUES - c.number)}),
+				#send_mail('Tomquest Clue #%i Found!' % (c.number,),
+				send_mail('Tomquest Test Email!',
+				#render_to_string('checkin_email.html', {'clue': c, 'remaining': (settings.NUM_CLUES - c.number)}),
+				'Hi friends! This is a test for Tom\'s scavenger hunt notification system. If you received this email, you should be all set to get notifications tomorrow.',
 				'tomscavengerhunt@gmail.com',
-				['trigger@ifttt.com', 'arizzitano@gmail.com'],
+				settings.EMAIL_LIST,
 				fail_silently=False)
 				return render_to_response('clue_user.html', {'clue': c}, context_instance=RequestContext(request))
 		return render_to_response('clue_form.html', {'message': 'Incorrect keyword!', 'clue':c, 'request':request}, context_instance=RequestContext(request))
