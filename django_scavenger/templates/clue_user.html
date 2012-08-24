@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
 {% block content %}
-	<h1>CLUE #{{ clue.number }}</h1>
-	{{ clue.text|safe }}
+	<h1>CLUE #{{ clue.next_clue.number }}</h1>
+	{{ clue.next_clue.text|safe }}
 {% endblock %}
