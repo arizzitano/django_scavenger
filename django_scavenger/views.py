@@ -14,7 +14,7 @@ def view_clue(request, clue_slug):
 	c = get_object_or_404(Clue, url_slug=clue_slug)
 	if request.method == 'POST':
 		if request.POST['keyword']:
-			if request.POST['keyword'].lower() == c.keyword:
+			if request.POST['keyword'].lower() == c.prev_clue.keyword:
 # 				send_mail('Tomquest Clue #%i Found!' % (c.number,),
 # 				render_to_string('checkin_email.html', {'clue': c, 'remaining': (settings.NUM_CLUES - c.number)}),
 # 				'tomscavengerhunt@gmail.com',
