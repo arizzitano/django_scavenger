@@ -6,7 +6,7 @@
 </head>
 <body>
 	<div class="clue">
-		<img src="{{ clue.code_url }}" alt="QR Code" />
+		<img src="{{ clue.prev_clue.code_url }}" alt="QR Code" />
 		<h2>Keyword #{{ clue.number }}: {{ clue.prev_clue.keyword }}</h2>
 	</div>
 	
