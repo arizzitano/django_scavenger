@@ -23,7 +23,7 @@ def view_clue(request, clue_slug):
 				fail_silently=False)
 				
 				send_mail('Tomquest Clue #%i Found!' % (c.number,),
-				render_to_string('checkin_email.html', {'clue': c, 'remaining': (settings.NUM_CLUES - c.number - 1)}),
+				render_to_string('checkin_email.html', {'clue': c, 'remaining': (settings.NUM_CLUES - c.number - 2)}),
 				'tomscavengerhunt@gmail.com',
 				['pete.karl@gmail.com'],
 				fail_silently=False)
