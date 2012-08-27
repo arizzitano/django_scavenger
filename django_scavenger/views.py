@@ -12,7 +12,6 @@ def index(request):
 
 def view_clue(request, clue_slug):
 	c = get_object_or_404(Clue, url_slug=clue_slug)
-	# pc = get_object_or_404(Clue, pk=c.prev_clue.id)
 	if request.method == 'POST':
 		if request.POST['keyword']:
 			if request.POST['keyword'].lower() == c.prev_clue.keyword:
@@ -34,7 +33,6 @@ def view_clue(request, clue_slug):
 		return render_to_response('clue_form.html', {'request': request, 'clue':c}, context_instance=RequestContext(request))
 		
 @login_required
-def admin_view_clue(request, clue_id):
-	c = get_object_or_404(Clue, id=clue_id)
-	pc = c.prev_clue
-	return render_to_response('clue_admin.html', {'clue': c, 'prevclue': pc}, context_instance=RequestContext(request))
+def admin_view_clue(request, clue_number):
+	c = get_object_or_404(Clue, number=clue_number)
+	return render_to_response('clue_admin.html', {'clue': c}, context_instance=RequestContext(request))

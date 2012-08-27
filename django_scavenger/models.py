@@ -7,7 +7,7 @@ from simplescavenger import settings
 class Clue(models.Model):
 	text = models.TextField()
 	code_url = models.URLField(null=True, blank=True)
-	number = models.PositiveIntegerField(default=0)
+	number = models.PositiveIntegerField(unique=True)
 	location = models.TextField(null=True, blank=True)
 	hint = models.TextField(null=True, blank=True)
 	keyword = models.CharField(max_length=32, null=True, blank=True)
