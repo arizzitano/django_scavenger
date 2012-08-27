@@ -1,11 +1,32 @@
 {% extends 'base.html' %}
 
+{% block script %}
+<script type="text/javascript">
+	$(document).ready(function() {
+		var n = $.cookie('name');
+		if (!n) {
+			$('.content').hide();
+			$('.askname').show();
+			$('#namesubmit').bind('click', function() {
+				if ($('#nametext').val() != '') {
+					$.cookie('name', $('#nametext').val());
+					$('.content').show();
+					$('.askname').slideUp();
+				}
+			});
+		} else {
+			$('#clueform').append('<input type="hidden" name="name" id="name" value="'+n+'" />');
+		}
+	});
+</script>
+{% endblock %}
+
 {% block content %}
 	<p>Enter keyword #{{ clue.number }} to see the clue!</p>
 	{% if message %}
 		<p>{{ message }}</p>
 	{% endif %}
-	<form method="post" action="{{ request.get_full_path }}">
+	<form method="post" id="clueform" action="{{ request.get_full_path }}">
 		{% csrf_token %}
 		<input type="text" id="keyword" name="keyword" />
 		<input type="submit" value="Submit!" />
