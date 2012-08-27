@@ -16,17 +16,17 @@ def view_clue(request, clue_slug):
 	if request.method == 'POST':
 		if request.POST['keyword']:
 			if request.POST['keyword'].lower() == c.prev_clue.keyword:
-				send_mail('Tomquest Clue #%i Found!' % (c.number,),
-				render_to_string('checkin_email.html', {'clue': c, 'remaining': (settings.NUM_CLUES - c.number)}),
-				'tomscavengerhunt@gmail.com',
-				settings.EMAIL_LIST,
-				fail_silently=False)
-				
-				send_mail('Tomquest Clue #%i Found!' % (c.number,),
-				render_to_string('checkin_email.html', {'clue': c, 'remaining': (settings.NUM_CLUES - c.number - 2)}),
-				'tomscavengerhunt@gmail.com',
-				['pete.karl@gmail.com'],
-				fail_silently=False)
+# 				send_mail('Tomquest Clue #%i Found!' % (c.number,),
+# 				render_to_string('checkin_email.html', {'clue': c, 'remaining': (settings.NUM_CLUES - c.number)}),
+# 				'tomscavengerhunt@gmail.com',
+# 				settings.EMAIL_LIST,
+# 				fail_silently=False)
+# 				
+# 				send_mail('Tomquest Clue #%i Found!' % (c.number,),
+# 				render_to_string('checkin_email.html', {'clue': c, 'remaining': (settings.NUM_CLUES - c.number - 2)}),
+# 				'tomscavengerhunt@gmail.com',
+# 				['pete.karl@gmail.com'],
+# 				fail_silently=False)
 				return render_to_response('clue_user.html', {'clue': c}, context_instance=RequestContext(request))
 
 		return render_to_response('clue_form.html', {'message': 'Incorrect keyword!', 'clue':c, 'request':request}, context_instance=RequestContext(request))
